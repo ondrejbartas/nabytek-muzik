@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo-proint.png";
+import logo from "@/assets/logo-muzik.svg";
 
 const links = [
   { label: "Služby", href: "#sluzby" },
@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-2.5">
-          <img src={logo} alt="Nábytek Mužík logo" width={28} height={28} />
+          <img src={logo} alt="Nábytek Mužík logo" className="h-7 w-auto" />
           <span className="font-display text-xl font-bold text-primary-foreground tracking-tight">Nábytek Mužík</span>
         </a>
 

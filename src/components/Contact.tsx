@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/logo-muzik.svg";
 
 const contact = { name: "Stanislav Mužík", phone: "+420602203739", label: "602 203 739" };
 
@@ -33,6 +34,7 @@ const Contact = () => {
 
           <div className="flex flex-col justify-center">
             <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-sm p-8">
+              <img src={logo} alt="Nábytek Mužík logo" className="h-10 w-auto mb-4" />
               <h3 className="font-display text-xl font-semibold text-primary-foreground mb-4">
                 Nábytek Mužík
               </h3>
