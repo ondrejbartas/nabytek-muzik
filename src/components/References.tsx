@@ -1,6 +1,19 @@
 import { Star, Quote, Building2 } from "lucide-react";
+import NejremeslniciBadge from "./NejremeslniciBadge";
+import rating from "@/data/nejremeslnici.json";
 
-const testimonials = [
+type Testimonial = {
+  text: string;
+  author: string;
+  location?: string;
+  date?: string;
+  rating?: number;
+  title?: string;
+  url?: string;
+  source?: "nejremeslnici";
+};
+
+const curated: Testimonial[] = [
   {
     text: "S firmou pana Mužíka jsme nadmíru spokojeni. Už od začátku bylo jeho jednání velice profesionální a zároveň byl maximálně ochotný vyjít všem našim požadavkům vstříc. Na jeho slovo se dalo spolehnout a vždy dodržel termíny, ať už prvotního zaměření, výroby skříně nebo finální realizace včetně celkové ceny.",
     author: "Tomáš Pavlíček",
@@ -17,6 +30,26 @@ const testimonials = [
     location: "Praha",
   },
 ];
+
+const formatDate = (iso: string) => {
+  const [y, m, d] = iso.split("-");
+  return `${Number(d)}. ${Number(m)}. ${y}`;
+};
+
+// The latest Nejřemeslníci reviews are pre-selected at build time
+// (scripts/fetch-rating.mjs); show the 3 newest, each linking to its
+// own reference page.
+const nejremeslniciReviews: Testimonial[] = rating.reviews.slice(0, 3).map((r) => ({
+  text: r.reviewBody,
+  author: r.author,
+  date: formatDate(r.datePublished),
+  rating: r.rating,
+  title: r.title,
+  url: r.url,
+  source: "nejremeslnici" as const,
+}));
+
+const testimonials: Testimonial[] = [...curated, ...nejremeslniciReviews];
 
 const corporateClients = [
   "MAKRO Cash & Carry ČR",
@@ -42,34 +75,79 @@ const References = () => {
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
           Reference
         </h2>
-        <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto font-body">
+        <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto font-body">
           Co o nás říkají naši zákazníci
         </p>
 
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="bg-card rounded-lg p-8 shadow-sm border border-border relative animate-fade-up"
-              style={{ animationDelay: `${i * 100}ms` }}
-            >
-              <Quote className="w-8 h-8 text-primary/30 mb-4" />
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">
-                "{t.text}"
-              </p>
-              <div className="border-t border-border pt-4">
-                <p className="font-display font-semibold text-foreground">{t.author}</p>
-                <p className="text-muted-foreground text-sm font-body">{t.location}</p>
-              </div>
-            </div>
-          ))}
+        <div className="flex justify-center mb-16">
+          <NejremeslniciBadge />
         </div>
+
+        {/* Testimonials */}
+        <div className="grid md:grid-cols-3 gap-8 mb-8 items-start">
+          {testimonials.map((t, i) => {
+            const stars = Math.round(t.rating ?? 5);
+            const isNr = t.source === "nejremeslnici";
+            const cardClass =
+              "bg-card rounded-lg p-8 shadow-sm border border-border relative animate-fade-up block" +
+              (isNr ? " transition-shadow hover:shadow-md" : "");
+            const content = (
+              <>
+                <Quote className="w-8 h-8 text-primary/30 mb-4" />
+                <div className="flex gap-1 mb-2">
+                  {[...Array(stars)].map((_, j) => (
+                    <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                {isNr && (
+                  <p className="font-display font-semibold text-foreground mb-3">{t.title}</p>
+                )}
+                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">
+                  "{t.text}"
+                </p>
+                <div className="border-t border-border pt-4">
+                  <p className="font-display font-semibold text-foreground">{t.author}</p>
+                  <p className="text-muted-foreground text-sm font-body">
+                    {isNr ? `Nejřemeslníci.cz · ${t.date}` : t.location}
+                  </p>
+                </div>
+              </>
+            );
+            return isNr ? (
+              <a
+                key={i}
+                href={t.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cardClass}
+                style={{ animationDelay: `${(i % 3) * 100}ms` }}
+              >
+                {content}
+              </a>
+            ) : (
+              <div
+                key={i}
+                className={cardClass}
+                style={{ animationDelay: `${(i % 3) * 100}ms` }}
+              >
+                {content}
+              </div>
+            );
+          })}
+        </div>
+
+        <p className="text-center text-muted-foreground font-body mb-20">
+          Přečtěte si{" "}
+          <a
+            href={rating.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-semibold underline-offset-4 hover:underline"
+          >
+            další hodnocení naší práce zákazníky na webu Nejřemeslníci.cz
+          </a>
+          .
+        </p>
 
         {/* Corporate clients */}
         <div className="text-center">

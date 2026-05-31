@@ -1,7 +1,10 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo-muzik.svg";
 
-const contact = { name: "Stanislav Mužík", phone: "+420602203739", label: "602 203 739" };
+const phones = [
+  { phone: "+420728935142", label: "728 935 142" },
+  { phone: "+420602203739", label: "602 203 739" },
+];
 
 const Contact = () => {
   return (
@@ -22,13 +25,16 @@ const Contact = () => {
                 <Mail className="w-5 h-5 text-primary" />
                 <span className="font-body text-lg">info@nabytekmuzik.cz</span>
               </a>
-              <a
-                href={`tel:${contact.phone}`}
-                className="flex items-center gap-4 text-primary-foreground hover:text-primary transition-colors"
-              >
-                <Phone className="w-5 h-5 text-primary" />
-                <span className="font-body text-lg">{contact.label}</span>
-              </a>
+              {phones.map((p) => (
+                <a
+                  key={p.phone}
+                  href={`tel:${p.phone}`}
+                  className="flex items-center gap-4 text-primary-foreground hover:text-primary transition-colors"
+                >
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span className="font-body text-lg">{p.label}</span>
+                </a>
+              ))}
             </div>
           </div>
 

@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Daily at 04:30 UTC — refreshes the Nejřemeslníci rating baked in at build time.
+    - cron: "30 4 * * *"
 
 permissions:
   contents: read
