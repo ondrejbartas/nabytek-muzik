@@ -95,7 +95,12 @@ function extractLatestReviews(html, limit = 6) {
       author: rev.author.name,
       datePublished: rev.datePublished,
       rating: Number(rev.reviewRating?.ratingValue ?? 5),
-      reviewBody: (rev.reviewBody ?? "").replace(/\s+/g, " ").trim(),
+      reviewBody: (rev.reviewBody ?? "")
+        .replace(/\r\n?/g, "\n") // normalize CRLF/CR to LF
+        .replace(/[ \t]+/g, " ") // collapse runs of spaces/tabs
+        .replace(/[ \t]*\n[ \t]*/g, "\n") // trim spaces around line breaks
+        .replace(/\n{3,}/g, "\n\n") // cap blank-line runs
+        .trim(),
       url: `${ORIGIN}${link[1]}`,
     });
   }

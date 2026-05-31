@@ -102,8 +102,8 @@ const References = () => {
                 {isNr && (
                   <p className="font-display font-semibold text-foreground mb-3">{t.title}</p>
                 )}
-                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">
-                  "{t.text}"
+                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6 whitespace-pre-line">
+                  {t.text}
                 </p>
                 <div className="border-t border-border pt-4">
                   <p className="font-display font-semibold text-foreground">{t.author}</p>
