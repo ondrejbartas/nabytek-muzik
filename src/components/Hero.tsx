@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Obývací stěna na míru od Pro-Int"
+          alt="Obývací stěna na míru od Nábytek Mužík"
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
@@ -29,7 +29,7 @@ const Hero = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.45s" }}>
           <a
-            href="mailto:info@pro-int.cz"
+            href="mailto:info@nabytekmuzik.cz"
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-4 rounded-sm font-body font-semibold text-base tracking-wide hover:opacity-90 transition-opacity"
           >
             <Mail className="w-5 h-5" />

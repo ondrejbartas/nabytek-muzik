@@ -2,17 +2,10 @@
 <html lang="cs">
   <head>
     <meta charset="UTF-8" />
-    <title>Pro-Int | Nábytek na míru – Český Brod</title>
+    <title>Nábytek Mužík</title>
     <script>
-      // SPA redirect for GitHub Pages
-      var path = window.location.pathname;
-      var repo = '/prehistoricka-nabytek-revive';
-      if (path.startsWith(repo)) {
-        path = path.slice(repo.length);
-      }
-      window.location.replace(
-        repo + '/?p=' + encodeURIComponent(path + window.location.search)
-      );
+      // SPA fallback for GitHub Pages: bounce any unknown path back to root.
+      window.location.replace('/');
     </script>
   </head>
   <body></body>

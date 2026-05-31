@@ -17,9 +17,9 @@ const Contact = () => {
             </p>
 
             <div className="space-y-6">
-              <a href="mailto:info@pro-int.cz" className="flex items-center gap-4 text-primary-foreground hover:text-primary transition-colors">
+              <a href="mailto:info@nabytekmuzik.cz" className="flex items-center gap-4 text-primary-foreground hover:text-primary transition-colors">
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="font-body text-lg">info@pro-int.cz</span>
+                <span className="font-body text-lg">info@nabytekmuzik.cz</span>
               </a>
               <a
                 href={`tel:${contact.phone}`}
@@ -34,7 +34,7 @@ const Contact = () => {
           <div className="flex flex-col justify-center">
             <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-sm p-8">
               <h3 className="font-display text-xl font-semibold text-primary-foreground mb-4">
-                Pro-Int
+                Nábytek Mužík
               </h3>
               <p className="text-primary-foreground/80 font-body text-sm mb-2">
                 Klučov 84, Český Brod, 282 01

@@ -27,7 +27,7 @@ const WhyUs = () => {
   return (
     <section id="proc-my" className="section-padding">
       <div className="max-w-6xl mx-auto">
-        <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-3">Proč Pro-Int</p>
+        <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-3">Proč Nábytek Mužík</p>
         <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-16 max-w-lg">
           Tradice řemeslné práce od roku 1996
         </h2>
