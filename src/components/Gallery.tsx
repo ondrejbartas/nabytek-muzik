@@ -4,20 +4,38 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import koupelna1 from "@/assets/gallery/koupelna-1.webp";
 import koupelna2 from "@/assets/gallery/koupelna-2.webp";
 import koupelna3 from "@/assets/gallery/koupelna-3.webp";
+import koupelna4 from "@/assets/gallery/koupelna-4.webp";
+import koupelna5 from "@/assets/gallery/koupelna-5.webp";
 import kuchyn1 from "@/assets/gallery/kuchyn-1.webp";
 import kuchyn2 from "@/assets/gallery/kuchyn-2.webp";
 import kuchyn3 from "@/assets/gallery/kuchyn-3.webp";
 import kuchyn4 from "@/assets/gallery/kuchyn-4.webp";
 import kuchyn5 from "@/assets/gallery/kuchyn-5.webp";
 import kuchyn6 from "@/assets/gallery/kuchyn-6.webp";
+import kuchyn7 from "@/assets/gallery/kuchyn-7.webp";
+import kuchyn8 from "@/assets/gallery/kuchyn-8.webp";
+import kuchyn9 from "@/assets/gallery/kuchyn-9.webp";
 import loznice1 from "@/assets/gallery/loznice-1.webp";
 import loznice2a from "@/assets/gallery/loznice-2a.webp";
 import loznice2b from "@/assets/gallery/loznice-2b.webp";
+import loznice3 from "@/assets/gallery/loznice-3.webp";
+import loznice4 from "@/assets/gallery/loznice-4.webp";
+import loznice5 from "@/assets/gallery/loznice-5.webp";
+import loznice6 from "@/assets/gallery/loznice-6.webp";
 import obyvaciPokoj1 from "@/assets/gallery/obyvaci-pokoj-1.webp";
 import pokojDetsky1 from "@/assets/gallery/pokoj-detsky-1.webp";
 import pokojDetsky2 from "@/assets/gallery/pokoj-detsky-2.webp";
 import pokojDetsky3 from "@/assets/gallery/pokoj-detsky-3.webp";
 import pokojDetsky4 from "@/assets/gallery/pokoj-detsky-4.webp";
+import pokojDetsky5 from "@/assets/gallery/pokoj-detsky-5.webp";
+import pokojDetsky6a from "@/assets/gallery/pokoj-detsky-6a.webp";
+import pokojDetsky6b from "@/assets/gallery/pokoj-detsky-6b.webp";
+import pokojDetsky7 from "@/assets/gallery/pokoj-detsky-7.webp";
+import kancelar1 from "@/assets/gallery/kancelar-1.webp";
+import knihovna1 from "@/assets/gallery/knihovna-1.webp";
+import satna1 from "@/assets/gallery/satna-1.webp";
+import skrine1 from "@/assets/gallery/skrine-1.webp";
+import chodba1 from "@/assets/gallery/chodba-1.webp";
 
 const galleryItems = [
   { src: kuchyn1, alt: "Moderní kuchyňská linka na míru v světlém dekoru", label: "Kuchyně" },
@@ -26,17 +44,35 @@ const galleryItems = [
   { src: kuchyn4, alt: "Klasická bílá rohová kuchyň na míru", label: "Kuchyně" },
   { src: kuchyn5, alt: "Minimalistická kuchyně s ostrůvkem a dřevěným obkladem", label: "Kuchyně" },
   { src: kuchyn6, alt: "Rustikální dřevěná kuchyňská linka na míru", label: "Kuchyně" },
+  { src: kuchyn7, alt: "Světlá kuchyňská linka na míru s vysokými skříněmi a dřevěnými detaily", label: "Kuchyně" },
+  { src: kuchyn8, alt: "Kuchyňský ostrůvek na míru s dřevěnou pracovní deskou a otevřenými policemi", label: "Kuchyně" },
+  { src: kuchyn9, alt: "Kuchyně na míru s ostrůvkem v kombinaci bílé a dřeva", label: "Kuchyně" },
   { src: koupelna1, alt: "Koupelnová sestava na míru s umyvadlem a úložným prostorem", label: "Koupelny" },
   { src: koupelna2, alt: "Dřevěná koupelnová skříňka na míru s černými detaily", label: "Koupelny" },
   { src: koupelna3, alt: "Koupelnový nábytek na míru v dekoru světlého dřeva", label: "Koupelny" },
+  { src: koupelna4, alt: "Koupelna na míru se sprchovým koutem a vestavěnou pračkou se sušičkou", label: "Koupelny" },
+  { src: koupelna5, alt: "Koupelnová skříňka na míru s podsvíceným zrcadlem a úložným prostorem", label: "Koupelny" },
   { src: loznice1, alt: "Ložnice na míru s vestavěnými skříněmi nad postelemi", label: "Ložnice" },
   { src: loznice2a, alt: "Ložnice na míru s postelí a vestavěnou šatní skříní", label: "Ložnice" },
   { src: loznice2b, alt: "Ložnice s komodou, zrcadlem a posuvnou skříní", label: "Ložnice" },
+  { src: loznice3, alt: "Ložnice na míru s bílými skříněmi a dekorativní tapetou", label: "Ložnice" },
+  { src: loznice4, alt: "Vestavěná bílá šatní skříň do ložnice", label: "Ložnice" },
+  { src: loznice5, alt: "Ložnice na míru s komodou, zrcadlem a žlutými akcenty", label: "Ložnice" },
+  { src: loznice6, alt: "Ložnice se šatní skříní s posuvnými dveřmi a lavicí", label: "Ložnice" },
   { src: obyvaciPokoj1, alt: "Obývací stěna s lamelovým obkladem a TV sestavou", label: "Obývací pokoje" },
   { src: pokojDetsky1, alt: "Dětský pokoj s pracovním stolem a úložnými skříňkami", label: "Dětské pokoje" },
   { src: pokojDetsky2, alt: "Dětský pokoj s vyvýšenou postelí a úložným prostorem", label: "Dětské pokoje" },
   { src: pokojDetsky3, alt: "Dětský pokoj s nízkými postelemi a vestavěnými zásuvkami", label: "Dětské pokoje" },
   { src: pokojDetsky4, alt: "Vestavěná skříň do dětského pokoje s otevřenými policemi", label: "Dětské pokoje" },
+  { src: pokojDetsky5, alt: "Dětský pokoj s psacím stolem a bílými knihovnami", label: "Dětské pokoje" },
+  { src: pokojDetsky6a, alt: "Dětský pokoj s vestavěnými policemi, postelí a pracovním koutem", label: "Dětské pokoje" },
+  { src: pokojDetsky6b, alt: "Dětský pokoj s úložnými policemi a oranžovým psacím stolem", label: "Dětské pokoje" },
+  { src: pokojDetsky7, alt: "Dětský pokoj s patrovou postelí a psacím stolem na míru", label: "Dětské pokoje" },
+  { src: kancelar1, alt: "Kancelář na míru s knihovnou a úložnými skříněmi", label: "Kancelář" },
+  { src: knihovna1, alt: "Velká vestavěná knihovna na míru s pracovním stolem", label: "Knihovny" },
+  { src: satna1, alt: "Prostorná šatna na míru s otevřenými úložnými systémy", label: "Šatny" },
+  { src: skrine1, alt: "Vestavěné skříně na míru s posuvnými i klasickými dveřmi", label: "Skříně" },
+  { src: chodba1, alt: "Předsíň na míru s vysokými skříněmi, lavicí a zrcadlem", label: "Předsíně & chodby" },
 ];
 
 const Gallery = () => {
@@ -74,7 +110,8 @@ const Gallery = () => {
           Galerie realizací
         </h2>
         <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto font-body">
-          Výběr z našich skutečných realizací kuchyní, koupelen, ložnic i dětských pokojů.
+          Výběr z našich skutečných realizací — kuchyně, koupelny, ložnice, dětské pokoje,
+          šatny, kanceláře, knihovny i vestavěné skříně.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
